@@ -1,5 +1,10 @@
 Blockmarks::Application.routes.draw do
+  get "topics/index"
+  get "topics/new"
+  get "topics/show"
+  get "topics/edit"
   resources :bookmarks 
+  resources :topics
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }
 
   #devise_scope :user do
