@@ -1,2 +1,25 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<h1>New Bookmark</h1>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @bookmark do |f| %>
+      <div class="form-group">
+        <%=  f.label :Topic %>
+        <%=  text_field_tag "topic_names",  placeholder: "Add topic names separated by a space" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :Bookmark %>
+        <%= f.text_area :url, class: 'form-control', placeholder: "Enter new bookmark" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+  

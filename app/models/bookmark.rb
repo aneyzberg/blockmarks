@@ -1,3 +1,13 @@
 class Bookmark < ActiveRecord::Base
-  belongs_to :user
+  
+  has_many :user_bookmarks
+  has_many :users, through: :user_bookmarks
+
+  has_many :topic_bookmarks
+  has_many :topics, through: :topic_bookmarks
+
+  default_scope{order('created_at DESC')}
+
+
+
 end
