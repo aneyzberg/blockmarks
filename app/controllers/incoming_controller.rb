@@ -41,6 +41,8 @@ class IncomingController < ApplicationController
       Rails.logger.info "done"
        
     end
+  else
+    Rails.logger.info ">>>>>> user not found"
   end
 
 
