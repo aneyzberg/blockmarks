@@ -12,10 +12,17 @@ topics = Topic.all
 
 10.times do
 Bookmark.create!(
-  topics: topics.sample,
   url: Faker::Internet.url
-  )
+)
 end
+
+Bookmark.all.each do |bookmark|
+  3.times do
+    bookmark.topics.create(topic: Topic.sample)
+  end
+end
+
+
 
 
 puts "Seed Finished"
