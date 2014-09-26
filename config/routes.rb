@@ -4,7 +4,12 @@ Blockmarks::Application.routes.draw do
   get "topics/show"
   get "topics/edit"
   resources :bookmarks 
+  #does the favorites route need to be nested
+
   resources :topics
+
+  resources :favorites, only: [:create, :destroy]
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }
 
 

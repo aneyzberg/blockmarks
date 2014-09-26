@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :user_bookmarks
   has_many :bookmarks, through: :user_bookmarks
 
+  has_many :likes, dependent: :destroy
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -23,6 +25,12 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def liked(bookmark)
+
+    likes.where(bookmark_id: bookmark.id).first
+
   end
 
 

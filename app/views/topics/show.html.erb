@@ -5,9 +5,10 @@
     <div class="table">
       <tr>
         <% @topic.bookmarks.each do |bookmark| %>
-        <td> <%= link_to bookmark.url, bookmark %></td> <br />
+        <td> <%= link_to bookmark.url, bookmark %></td>
+         <% end %>
+          <%= render partial: 'likes/like', locals: {bookmark: @bookmark } %> <br />
       </tr>
-      <% end %>
     </div>
    </div>
   </div> 
