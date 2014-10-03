@@ -1,4 +1,5 @@
 Blockmarks::Application.routes.draw do
+  get "user_bookmarks/index"
   get "topics/index"
   get "topics/new"
   get "topics/show"
@@ -8,7 +9,10 @@ Blockmarks::Application.routes.draw do
 
   resources :topics
 
-  resources :favorites, only: [:create, :destroy]
+  resources :user_bookmarks, only: [:index]
+
+  resources :likes, only: [:create, :destroy]
+
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }
 

@@ -29,7 +29,14 @@ class User < ActiveRecord::Base
 
   def liked(bookmark)
 
-    likes.where(bookmark_id: bookmark.id).first
+    self.likes.where(bookmark_id: bookmark.id).first
+
+  end
+
+
+  def created(bookmark)
+
+  self.where(bookmark_id: bookmark.id).first
 
   end
 

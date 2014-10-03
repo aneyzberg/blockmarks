@@ -27,6 +27,9 @@ class BookmarksController < ApplicationController
         topic_name = topic_name.sub(/#/, "")
         topic = Topic.find_or_create_by_name(topic_name)
         @bookmark.topics << topic
+
+
+
         #@bookmark.topics.create(topic: topic)
       end
 
@@ -44,7 +47,35 @@ class BookmarksController < ApplicationController
         end
   end
 end
-    
+
+
+ def destroy
+    #@bookmark = Bookmark.find_or_create_by_url(params[:bookmark][:url])
+    @bookmark = Bookmark.find(params[:id])
+
+       @bookmark.users << current_user
+       #@bookmarks.users.create(user: current_user)
+
+    @topic = Topic.find(params[:topic_id])
+
+    @bookmark.topics << topic
+    #@bookmarks.topics.create(topic: topic)
+
+
+        if @bookmark.destroy
+
+        flash[:notice] = "Bookmark was deleted."
+
+        redirect_to topics_path
+
+      #set flash message for success
+        else
+        flash[:error] = "There was an error deleting your Bookmark. Please try again"
+        render :show
+        # failed 
+        end
+  end
+
 
     #set flash message for success
 

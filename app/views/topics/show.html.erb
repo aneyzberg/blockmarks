@@ -3,12 +3,13 @@
 <div class="row">
   <div class="col-md-8">
     <div class="table">
-      <tr>
+      <div class="row">
         <% @topic.bookmarks.each do |bookmark| %>
-        <td> <%= link_to bookmark.url, bookmark %></td>
+          <%= link_to bookmark.url, bookmark %><br/>
+           <%= render partial: 'likes/like', locals: {bookmark: bookmark } %> <br />
          <% end %>
-          <%= render partial: 'likes/like', locals: {bookmark: @bookmark } %> <br />
-      </tr>
+         
+      </div>
     </div>
    </div>
   </div> 
