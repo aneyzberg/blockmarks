@@ -1,0 +1,12 @@
+
+<% link = bookmark.thumbnail_url.blank? ? bookmark.url  : "<img src='#{bookmark.thumbnail_url}'/>".html_safe %>
+<%= link_to link, bookmark, class: "thumbs" %><br />
+
+
+<%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
+
+<% if delete = current_user.bookmark %>
+<%= link_to "delete", current_user.user_bookmark, bookmark class: 'btn-btn-danger', method: :delete, do %>
+<i class="glyphicon glyphicon-remove"></i>
+<% end %>
+

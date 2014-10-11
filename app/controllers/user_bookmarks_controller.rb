@@ -1,26 +1,18 @@
 class UserBookmarksController < ApplicationController
   
   def index
+    @topics = current_user.bookmarks.collect(&:topics).flatten.uniq
+    @bookmarks = current_user.bookmarks.uniq 
+    @liked_topics = current_user.liked_bookmarks.collect(&:topics).flatten.uniq
+    @liked_bookmarks = current_user.liked_bookmarks
 
-    @bookmarks = Bookmark.all #current_user(params[:user_id])
-  
-    #@bookmarks = Bookmark.likes(params[:like_id])
+    
 
-  
+   
 
-  #@topic = Topic.find(params[:topic_id])
+    #@embedly_info = 
 
-  #@like = Like.find(params[:like_id])
-
-  #@bookmarks.users << current_user
-
-
-
- #current user = @bookmarks.users.create(user: current_user)
-end
-
-
-
+  end
 
 end
 

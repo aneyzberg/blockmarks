@@ -5,4 +5,8 @@ class Topic < ActiveRecord::Base
 
   default_scope{order('created_at DESC')}
 
+  def bookmarks_for(user)
+    bookmarks.where(user_id: user.id)
+  end
+
 end

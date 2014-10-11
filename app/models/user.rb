@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
 
   end
 
+  def liked_bookmarks
+    likes.collect(&:bookmark)
+  end
+
 
   def created(bookmark)
 

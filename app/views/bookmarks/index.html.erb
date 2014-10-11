@@ -2,6 +2,13 @@
 
   <div class="col-md-8" align="center">
     <h1 align="center"> All Blockmarks</h1>
+    <% if current_user %>
+    <div class="row">
+      <div class="col-md-4">
+        <p><%= link_to "New Bookmark", new_bookmark_path, class: 'btn btn-success' %><br />
+      </div>
+    </div>
+    <% end %>
       <div class="table table-striped">
 
         <% @bookmarks.each do |bookmark| %>
