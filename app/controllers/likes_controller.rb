@@ -13,7 +13,7 @@ def create
     if like.save
 
     flash[:notice] = "You have successfully liked this bookmark"
-    redirect_to topics_path
+    redirect_to user_bookmarks_path
 
     else
 
@@ -39,11 +39,11 @@ def destroy
 
     flash[:notice] = "Like has been deleted"
 
-    redirect_to topics_path
+    redirect_to user_bookmarks_path
   else
 
     flash[:error] = "Unable to delete like. Please try again"
-    redirect_to topics_path
+    redirect_to user_bookmarks_path
 
   end
 end

@@ -5,8 +5,10 @@
 
 <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
 
-<% if delete = current_user.bookmark %>
-<%= link_to "delete", current_user.user_bookmark, bookmark class: 'btn-btn-danger', method: :delete, do %>
-<i class="glyphicon glyphicon-remove"></i>
+
+<% if user_bookmark = current_user.user_bookmark_for(bookmark) %>
+  <%= link_to user_bookmark, method: :delete, class: 'btn btn-danger' do %>
+  <i class="glyphicon glyphicon-remove"></i>&nbsp;Delete 
+  <% end %>
 <% end %>
 

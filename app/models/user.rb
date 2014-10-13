@@ -44,6 +44,13 @@ class User < ActiveRecord::Base
 
   end
 
+  def user_bookmark_for(bookmark)
+    debugger
+    self.user_bookmarks.where(bookmark_id: bookmark.id).first
+  end
+
+
+
 
 end
 

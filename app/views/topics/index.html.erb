@@ -15,6 +15,9 @@
           <td>
             <% topic.bookmarks.each do |bookmark| %>
           <%= link_to bookmark.url, bookmark  %>
+          <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
+
+
         </tr>
       <% end %>
      <% end %>

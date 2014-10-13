@@ -11,6 +11,9 @@ end
 
 group :development  do
  gem 'sqlite3'
+ gem 'better_errors'
+ gem 'binding_of_caller'
+ gem 'meta_request'
 end
 
 # Use SCSS for stylesheets
@@ -45,6 +48,7 @@ gem 'figaro'
 gem 'omniauth-facebook'
 
 gem 'embedly'
+
 
 
 group :doc do

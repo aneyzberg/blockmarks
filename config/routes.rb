@@ -9,7 +9,7 @@ Blockmarks::Application.routes.draw do
 
   resources :topics
 
-  resources :user_bookmarks, only: [:index]
+  resources :user_bookmarks, only: [:index, :destroy]
 
   resources :likes, only: [:create, :destroy]
 
